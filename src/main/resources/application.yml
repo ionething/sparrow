@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    include: mybatis, common
+    active: dev
+
