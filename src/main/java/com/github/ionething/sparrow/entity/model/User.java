@@ -6,10 +6,13 @@ import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @TableId
     @NotNull

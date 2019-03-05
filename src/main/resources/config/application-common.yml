@@ -5,3 +5,17 @@ spring:
     add-mappings: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+  cache:
+    type: redis
+
+logging:
+  file: ./logs/sparrow-application-${spring.profiles.active}-${logging.level.root}.log
+  file.max-history: 0
+  file.max-size: 100MB
+  level:
+    root: info
+    com.github.ionething: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: "%5p"
+#    file: "%d %-5level [%thread] %logger{36} [%file:%line]: %msg%n"
