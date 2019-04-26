@@ -1,7 +1,9 @@
 package com.github.ionething.sparrow.service;
 
-import org.springframework.stereotype.Service;
+import com.github.ionething.sparrow.entity.model.User;
 
-@Service
-public class UserService {
+public interface UserService {
+
+    User getUserByUsername(String username);
+
 }

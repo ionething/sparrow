@@ -5,6 +5,7 @@ import com.github.ionething.sparrow.framework.exception.BussinessException;
 import com.github.ionething.sparrow.framework.bean.ResultEntity;
 import com.github.ionething.sparrow.framework.common.ResultConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -30,6 +31,8 @@ public class GlobalExceptionHandler {
         } else if (e instanceof NoHandlerFoundException) {
             // 404
             result = new ResultEntity(ResultConstants.CODE_NOT_FIND, ResultConstants.MESSAGE_NOT_FIND);
+        } else if (e instanceof UsernameNotFoundException) {
+            result = new ResultEntity(ResultConstants.CODE_FAIL, ResultConstants.MESSAGE_LOGIN_ERROR);
         } else if (e instanceof ServletException) {
             result = new ResultEntity(ResultConstants.CODE_BAD_REQUEST, ResultConstants.MESSAGE_BAD_REQUEST);
         } else if (e instanceof MethodArgumentNotValidException) {
@@ -45,7 +48,6 @@ public class GlobalExceptionHandler {
                 }
 
             }
-
             result = new ResultEntity(ResultConstants.CODE_BAD_REQUEST, message);
         } else {
             // 500

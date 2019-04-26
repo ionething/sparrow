@@ -11,4 +11,5 @@ public interface UserDao extends BaseMapper<User> {
 
     @Cacheable()
     User findById(@Param("id") Long id);
+
 }
