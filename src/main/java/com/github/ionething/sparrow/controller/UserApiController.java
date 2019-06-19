@@ -30,7 +30,7 @@ public class UserApiController {
 
     @PostMapping("/list")
     public ResultEntity<IPage<User>> list() {
-        return new ResultEntity<>(userDao.selectPage(new Page<>(2, 3), null));
+        return new ResultEntity<>(userDao.selectPage(new Page<>(0, 3), null));
     }
 
     @PostMapping("/add")
